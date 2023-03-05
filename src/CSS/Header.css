@@ -1,0 +1,42 @@
+.headerWrapper {
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid #61dbfb;
+}
+
+.headerWrapper > .header {
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border-left: 1px solid #61dbfb;
+    border-right: 1px solid #61dbfb;
+}
+
+.header > .appLogo {
+    width: 100px;
+}
+.header > .appLogo:hover {
+    width: 110px;
+    transition: 0.5s;
+}
+
+.linkedinLogo, .githubLogo {
+    width: 30px;
+    margin-right: 20px;
+}
+
+.linkedinLogo:hover, .githubLogo:hover {
+    width: 40px;
+    transition: 0.5s;
+}

@@ -1,0 +1,18 @@
+p {
+    text-align: center;
+    padding: 10px;
+    margin: 0px !important;
+
+    font-size: 25px;
+    font-weight: lighter;
+    color: white;
+}
+
+p:hover {
+    color: transparent;
+    transition: 0.5s;
+}
+
+footer {
+    border-top: 1px solid #61dbfb;
+}

@@ -1,0 +1,16 @@
+* {
+    background-color: #18191a;
+}
+
+@media  screen and (max-width: 768px) {
+    .headerWrapper > .header {
+        width: 100%;
+    }
+    .body {
+        padding: 45px 0px 45px 0px;
+        width: 80%;
+    }
+    * > p {
+        font-size: 15px;
+    }
+}
