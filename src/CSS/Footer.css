@@ -13,6 +13,23 @@ p:hover {
     transition: 0.5s;
 }
 
-footer {
+.footerWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footerWrapper > footer {
     border-top: 1px solid #61dbfb;
+    width: 100%;
+    max-width: 1440px;
+}
+
+@media screen and (min-width: 1440px){
+    footer {
+        border-radius: 5px;
+
+        border-left: 1px solid #61dbfb;
+        border-right: 1px solid #61dbfb;
+    }
 }
