@@ -80,10 +80,17 @@ class Body extends Component {
                     ii++ 
                 }
             })
-            
         }
+
+        const enterDown = (e) => {
+            let keyCode = e.code || e.key
+            if(keyCode === 'Enter'){
+                shoot()
+            }
+        }
+
         return (
-            <div className="bodyWrapper">
+            <div className="bodyWrapper" onKeyUp={e => enterDown(e)}>
                 <div className="body">
                     <div className="input-group mb-3">
                         <input id="inputCity" type="text" className="form-control" placeholder="Discover your city weather..." 
