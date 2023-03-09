@@ -10,9 +10,7 @@
     max-width: 1024px;
 
     height: 100%;
-    min-height: 1000px;
-
-    padding: 45px;
+    min-height: 90vh;
 
     display: flex;
     flex-direction: column;
@@ -27,18 +25,6 @@
     max-width: 600px;
     padding: 10px;
 }
-.form-control {
-    width: 60% !important;
-}
-
-.clearButton {
-    width: 90%;
-
-
-    border: 1px solid;
-    border-radius: 5px;
-}
-
 
 p:hover {
     color: transparent;
@@ -46,5 +32,49 @@ p:hover {
 }
 
 #resultField {
-    text-align: center; 
+    width: 90%;
+    min-height: 200px;
+
+    padding: 10px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#resultField h1 {
+    font-size: 25px;
+    font-weight: 100;
+    color: white;
+}
+
+#resultField > div {
+    border: 1px solid #61dbfb;
+    border-Radius: 10px;
+    overflow: hidden;
+
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#resultField > div > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 768px){
+    #resultField {
+        width: 100%;
+        padding: 0px;
+    }
+    #resultField > div {
+        border: none;
+        border-radius: 0px;
+        border-top: 1px solid #61dbfb;
+        border-bottom: 1px solid #61dbfb;
+    }
 }

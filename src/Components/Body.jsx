@@ -29,7 +29,10 @@ class Body extends Component {
             //Inserindo na div presente no html a div dos resultados
             insertInto.appendChild(newDivForRes)
 
-            let url = `http://api.weatherapi.com/v1/current.json?key=YOUR_KEY&q=${valuee}&aqi=no`
+            //Get your key here:
+            //https://www.weatherapi.com/my/
+            let key = ''
+            let url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${valuee}&aqi=no`
             
             //Fazendo requisição na API 
             fetch(url)
@@ -37,48 +40,51 @@ class Body extends Component {
             .then(json => {
 
                 //Separando as duas partes do JSON: Localização e Clima Atual 
-                let loc = json.location
-                let cur = json.current
+                let location = json.location
+                let locationAtt = ['name', 'region', 'country']
 
-                //Array dos atributos do Clima atual
-                let climaAtual = ['Última Atualização (EPOCH)', 'Última Atualização', 'Temperatura (°C)', 'Temperatura (°F)', 'É dia???', 'Condição', 'Velocidade do vento (Mph)', 'Velocidade do vento (Kmh)', 'Proa do vento', 'Direção do vento', 'Pressão (mbar)', 'Pressão (Pol.)', 'Preciptação (mm)', 'Preciptação (Pol.)', 'Humidade do ar', 'Nuvens', 'Sensação térmica (°C)', 'Sensação térmica (°F)', 'Visibilidade (Km)', 'Visbilidade (Milhas)', 'UV', 'Rajada (Kmh)', 'Rajada (Mph)']
-                
-                //For utilizado para manusear o Objeto que trás um texto e uma imagem da descrição do Clima Atual 
-                for(let asd = 0; asd < 6; asd++) {
-                    if(asd === 5){          
-                        var text = document.createElement('p'); 
-                        text.innerHTML = `Clima: ${cur.condition.text}`
-                        newDivForRes.appendChild(text); 
-                        
-                        var img = document.createElement('img'); 
-                        img.src = cur.condition.icon
-                        newDivForRes.appendChild(img)
-                    }
-                }
+                let climate = json.current
 
-                //Array de cada atributo da Lozalização traduzido
-                let localizacao = ['Nome', 'Região', 'País', 'Latitude', 'Longitude', 'Fuso Horário', 'Horário Local (EPOCH)', 'Horário Local']
-                
+                //Criando o titulo com info sobre o local
+                var h1 = document.createElement('h1'); 
+
                 //For para exibir cada Atributo e seu respectivo valor da Localização
-                let it = 0
-                for(let inin in loc){
-                    var z = document.createElement('p'); 
-                    z.innerHTML = `${localizacao[it]}: ${loc[inin]}`
-                    newDivForRes.appendChild(z); 
-                    it++
+                for(let x = 0; x < locationAtt.length; x++){
+                    h1.innerHTML += `${location[locationAtt[x]]} `
+                    newDivForRes.appendChild(h1); 
                 }
 
-                //Exibindo uma linha para separar atributos sobre a Localização e Clima atual
+                //Linha de separação
                 newDivForRes.appendChild(document.createElement('hr')); 
 
-                let ii = 0
-                //For para exibir todos atributos e valores do Clima atual
-                for(let valval in cur){
-                    var y = document.createElement('p'); 
-                    y.innerHTML = `${climaAtual[ii]}: ${cur[valval]}`
-                    newDivForRes.appendChild(y);
-                    ii++ 
-                }
+                //Div flex para display de valores do clima:
+                let div = document.createElement('div')
+                newDivForRes.appendChild(div)
+
+                    //Imagem do Clima Atual 
+                    var img = document.createElement('img'); 
+                    img.src = climate.condition.icon
+                    div.appendChild(img)
+                    
+                    //Descrição do Clima Atual
+                    var text = document.createElement('p'); 
+                    text.innerHTML = `${climate.condition.text}`
+                    div.appendChild(text); 
+                    
+                    //Temperatura e velocidade do vento:
+                    var p1 = document.createElement('p'); 
+                    p1.innerHTML = `${climate['temp_c']}°C Wind: ${climate['wind_kph']} Km/H`
+                    div.appendChild(p1);
+
+                //Linha de separação
+                newDivForRes.appendChild(document.createElement('hr')); 
+
+                //Displaying local time e horário da última atualização 
+                var p2 = document.createElement('p'); 
+                p2.style.fontSize = '14px'
+                p2.innerHTML = `Local time: ${location['localtime']} - Climate data from: ${climate['last_updated']}`
+                newDivForRes.appendChild(p2)
+
             })
         }
 
@@ -92,7 +98,7 @@ class Body extends Component {
         return (
             <div className="bodyWrapper" onKeyUp={e => enterDown(e)}>
                 <div className="body">
-                    <div className="input-group mb-3">
+                    <div className="input-group w-50 mb-3 mt-5">
                         <input id="inputCity" type="text" className="form-control" placeholder="Discover your city weather..." 
                             aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
                         
@@ -101,7 +107,7 @@ class Body extends Component {
                         </div>
                     </div>
 
-                    <button type="button" className="btn btn-danger w-75"
+                    <button type="button" className="btn btn-danger w-50 mb-4"
                         onClick={() => clearHTML()}>Clear</button>
 
                     <div id="resultField">
