@@ -66,6 +66,11 @@ p:hover {
     align-content: center;
 }
 
+.input-group {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 768px){
     #resultField {
         width: 100%;
@@ -76,5 +81,13 @@ p:hover {
         border-radius: 0px;
         border-top: 1px solid #61dbfb;
         border-bottom: 1px solid #61dbfb;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        width: 80% !important;
+    }
+    .form-control, .btn {
+        width: 100% !important;
     }
 }

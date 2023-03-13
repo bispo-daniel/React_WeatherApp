@@ -31,7 +31,7 @@ class Body extends Component {
 
             //Get your key here:
             //https://www.weatherapi.com/my/
-            let key = ''
+            let key = process.env.REACT_APP_SECRET_KEY
             let url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${valuee}&aqi=no`
             
             //Fazendo requisição na API 
@@ -98,7 +98,7 @@ class Body extends Component {
         return (
             <div className="bodyWrapper" onKeyUp={e => enterDown(e)}>
                 <div className="body">
-                    <div className="input-group w-50 mb-3 mt-5">
+                    <div className="input-group">
                         <input id="inputCity" type="text" className="form-control" placeholder="Discover your city weather..." 
                             aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
                         
