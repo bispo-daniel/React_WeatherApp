@@ -1,5 +1,5 @@
 # Check this project online:
-  https://bispo-daniel-weatherapp.netlify.app
+  https://bispo-weatherapp.netlify.app
 
 # Getting Started with Create React App
 

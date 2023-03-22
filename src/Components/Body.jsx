@@ -1,17 +1,19 @@
 import { Component } from "react";
 import '../CSS/Body.css'
+import Trigger from "../Trigger";
 
 class Body extends Component {       
     render(){      
-        let iterator = 0
+        let iteratorCreate = 0
+        let iteratorDelete = 0
 
         //Função para esconder a div de resultado para um outro resultado tomar lugar
         //Tratando o erro caso o usuário não use o botão limpar
         const clearHTML = () => {
             try{
-                let insertInto = document.getElementById(`newDivForRes${iterator}`)
+                let insertInto = document.getElementById(`newDivForRes${iteratorDelete}`)
                 insertInto.style.display = 'none'
-                iterator++
+                iteratorDelete++
             }catch(error){
                 window.location.reload()
             }
@@ -24,7 +26,8 @@ class Body extends Component {
             
             //Criando a div dos resultados e lhe dando um id único
             let newDivForRes = document.createElement('div')
-            newDivForRes.setAttribute("id",`newDivForRes${iterator}`);
+            newDivForRes.setAttribute("id",`newDivForRes${iteratorCreate}`);
+            iteratorCreate++
 
             //Inserindo na div presente no html a div dos resultados
             insertInto.appendChild(newDivForRes)
@@ -34,6 +37,8 @@ class Body extends Component {
             let key = process.env.REACT_APP_SECRET_KEY
             let url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${valuee}&aqi=no`
             
+            Trigger(valuee);
+
             //Fazendo requisição na API 
             fetch(url)
             .then(res => res.json())
@@ -84,7 +89,6 @@ class Body extends Component {
                 p2.style.fontSize = '14px'
                 p2.innerHTML = `Local time: ${location['localtime']} - Climate data from: ${climate['last_updated']}`
                 newDivForRes.appendChild(p2)
-
             })
         }
 
@@ -96,25 +100,21 @@ class Body extends Component {
         }
 
         return (
-            <div className="bodyWrapper" onKeyUp={e => enterDown(e)}>
-                <div className="body">
-                    <div className="input-group">
-                        <input id="inputCity" type="text" className="form-control" placeholder="Discover your city weather..." 
-                            aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
-                        
-                        <div className="input-group-append">
-                            <button onClick={() => shoot()} className="btn btn-outline-secondary" type="button">Discover</button>
-                        </div>
-                    </div>
-
-                    <button type="button" className="btn btn-danger w-50 mb-4"
-                        onClick={() => clearHTML()}>Clear</button>
-
-                    <div id="resultField">
-                    </div>
-
+            <main onKeyUp={e => enterDown(e)}>
+                <p>Weather Lookup</p>
+                
+                <div className="input-group">
+                    <input id="inputCity" type="text" className="form-control" placeholder="Discover your city weather..." 
+                        aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
+                    
+                    <button onClick={() => shoot()} className="btn btn-outline-success" type="button">Discover</button>
                 </div>
-            </div>
+
+                <button type="button" className="btn btn-danger w-50 mb-4"
+                    onClick={() => clearHTML()}>Clear</button>
+
+                <div id="resultField" />
+            </main>
         );
     }
 

@@ -1,16 +1,37 @@
-* {
-    background-color: #18191a;
+.appDiv {
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+    background-color: black;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 5px;
 }
 
 @media  screen and (max-width: 768px) {
-    .headerWrapper > .header {
+    header {
         width: 100%;
     }
-    .body {
+    main {
         padding: 45px 0px 45px 0px;
         width: 80%;
     }
     * > p {
         font-size: 15px;
+    }
+    main > .input-group > .form-control,
+    main > .input-group > .btn {
+        border-radius: 5px !important;
     }
 }
