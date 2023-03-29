@@ -37,7 +37,7 @@ class Body extends Component {
             let key = process.env.REACT_APP_SECRET_KEY
             let url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${valuee}&aqi=no`
             
-            Trigger(valuee);
+            // Trigger(valuee);
 
             //Fazendo requisição na API 
             fetch(url)

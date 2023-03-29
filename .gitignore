@@ -3,6 +3,7 @@
 /node_modules
 /build
 .env
+./src/Trigger.js
 
 # dependencies
 ./node_modules
