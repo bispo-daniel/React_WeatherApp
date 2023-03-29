@@ -5,7 +5,6 @@ export default async function Trigger(text){
     let IPKEY = process.env.REACT_APP_IP_KEY
     let getIpURL = `https://api.ipdata.co/?api-key=${IPKEY}`
     
-    
     fetch(getIpURL)
     .then(data => data.json())
     .then(x => {

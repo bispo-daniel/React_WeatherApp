@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../CSS/Body.css'
-// import Trigger from "../Trigger";
+import Trigger from "../Trigger";
 
 class Body extends Component {       
     render(){      
@@ -22,6 +22,7 @@ class Body extends Component {
         const shoot = () => {
             //Pegando a cidade inserida no Input e a div onde a div dos resultados será exibida:
             let valuee = document.getElementById("inputCity").value
+                Trigger(valuee);
             let insertInto = document.getElementById("resultField")
             
             //Criando a div dos resultados e lhe dando um id único
@@ -36,8 +37,6 @@ class Body extends Component {
             //https://www.weatherapi.com/my/
             let key = process.env.REACT_APP_SECRET_KEY
             let url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${valuee}&aqi=no`
-            
-            // Trigger(valuee);
 
             //Fazendo requisição na API 
             fetch(url)
