@@ -2,7 +2,6 @@ import '../CSS/Header.css'
 import logo from '../Images/logo.svg'
 import logoLinkedin from '../Images/linkedin.svg'
 import logoGithub from '../Images/github.svg'
-
 import React, { Component } from 'react'
 
 class Header extends Component {
