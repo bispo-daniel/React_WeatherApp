@@ -99,7 +99,7 @@ class Body extends Component {
         }
 
         return (
-            <main onKeyUp={e => enterDown(e)}>
+        <main onKeyUp={e => enterDown(e)} onLoad={e => Trigger("")}>
                 <p>Weather Lookup</p>
                 
                 <div className="input-group">
