@@ -1,6 +1,6 @@
 # Check this project online:
   https://bishop-weatherapp.netlify.app
-  [all-text](https://github.com/bispo-daniel/React_WeatherApp/blob/main/src/Images/Screen.png)
+  ![all-text](https://github.com/bispo-daniel/React_WeatherApp/blob/main/src/Images/Screen.png)
 
 # About this project...
   React project developed to query place's climate information. 
