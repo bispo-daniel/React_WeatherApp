@@ -10,7 +10,11 @@
   https://www.weatherapi.com/my/
 
 # Challenges and Learning
-  This was my first own project developed with react. The biggest challenge and learning here was to handle the api's response. Learned how to lean on the api's documentation to proper use it.
+  This was my first own project developed with react. 
+  
+  The biggest challenge and learning here was to handle the api's response. 
+  
+  Learned how to lean on the api's documentation to proper use it.
 
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
