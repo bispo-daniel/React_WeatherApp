@@ -1,6 +1,11 @@
 # Check this project online:
   https://bishop-weatherapp.netlify.app
 
+# About this project...
+  React project developed to query place's climate information. The API used is from WeatherAPI.
+  //Get your key here:
+  https://www.weatherapi.com/my/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
